@@ -14,7 +14,7 @@ public class Merge {
 
   public static void merge(int[] data,int lo,int hi) {
     int[]data1 = new int[(lo+hi)/2 - lo + 1];
-    int[]data2 = new int[hi - (lo+hi)/2  + 1];
+    int[]data2 = new int[hi - (lo+hi)/2 + 1];
     for (int i = 0;i < data1.length;i += 1) {
       data1[i] = data[i + lo];
     }
@@ -23,8 +23,8 @@ public class Merge {
     }
     int m = 0;
     int n = 0;
-    for (int i = 0;i < m + n;i += 1) {
-      if (n >= data.length || data1[m] < data2[n]) {
+    for (int i = 0;i < data1.length + data2.length;i += 1) {
+      if (n >= data.length || (m < data1.length && data1[m] < data2[n])) {
         data[i] = data[m];
         m += 1;
       }
