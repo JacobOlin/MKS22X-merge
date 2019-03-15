@@ -8,5 +8,10 @@ public class Merge {
     }
     mergesort(data,lo,(lo+hi)/2);
     mergesort(data,(lo+hi)/2+1,hi);
+    merge(data,lo,hi);
+  }
+
+  public static void merge(int[] data,int lo,int hi) {
+    
   }
 }
