@@ -20,5 +20,17 @@ public class Merge {
     for (int i = 0;i < data2.length;i += 1) {
       data2[data2.length - 1 - i] = data[hi - i];
     }
+    int m = 0;
+    int n = 0;
+    for (int i = 0;i < m + n;i += 1) {
+      if (n >= data.length || data1[m] < data2[n]) {
+        data[i] = data[m];
+        m += 1;
+      }
+      else {
+        data[i] = data[n];
+        n += 1;
+      }
+    }
   }
 }
