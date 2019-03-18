@@ -7,14 +7,18 @@ public class Merge {
     if (lo >= hi) {
       return;
     }
+    /*for (int i = lo;i <= hi;i += 1) {
+      System.out.print(data[i] + " ");
+    }
+    System.out.println();*/
     mergesort(data,lo,(lo+hi)/2);
     mergesort(data,(lo+hi)/2+1,hi);
     merge(data,lo,hi);
   }
 
   public static void merge(int[] data,int lo,int hi) {
-    int[]data1 = new int[(lo+hi)/2 - lo + 1];
-    int[]data2 = new int[hi - (lo+hi)/2 + 1];
+    int[]data1 = new int[(lo+hi+1)/2 - lo];
+    int[]data2 = new int[hi - (lo+hi+1)/2 + 1];
     for (int i = 0;i < data1.length;i += 1) {
       data1[i] = data[i + lo];
     }
@@ -24,12 +28,18 @@ public class Merge {
     int m = 0;
     int n = 0;
     for (int i = 0;i < data1.length + data2.length;i += 1) {
-      if (n >= data.length || (m < data1.length && data1[m] < data2[n])) {
-        data[i] = data[m];
+      //System.out.println(n + " " + m + " " + lo + " " + hi + " " + data1.length + " " + data2.length);
+      if (n >= data2.length || (m < data1.length && data1[m] < data2[n])) {
+        /*System.out.print(data[m] + " q ");
+        if (n < data.length) {
+          System.out.print(data[n]);
+        }
+        System.out.println();*/
+        data[i] = data1[m];
         m += 1;
       }
       else {
-        data[i] = data[n];
+        data[i] = data2[n];
         n += 1;
       }
     }
