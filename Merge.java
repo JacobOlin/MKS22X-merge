@@ -4,7 +4,8 @@ public class Merge {
   }
 
   public static void mergesort(int[] data,int lo,int hi) {
-    if (lo >= hi) {
+    if (lo + 8>= hi) {
+      insertionSort(data,lo,hi);
       return;
     }
     /*for (int i = lo;i <= hi;i += 1) {
