@@ -65,17 +65,16 @@ public class Merge {
     }
   }
 
-  public static void insertionSort(int[]data,int lo,int hi) {
-    for (int i = lo + 1;i <= hi;i += 1) {
-      for (int j = lo;j < i;j += 1) {
-        if (data[i] < data[j]) {
-          int hold = data[i];
-          for (int k = i;k > j;k -= 1) {
-            data[k] = data[k-1];
-          }
-          data[j] = hold;
+
+    public static void insertionSort(int[] data,int lo,int hi) {
+      int current;
+      for (int i = lo+1;i <= hi;i += 1) {
+        current = data[i];
+        int j;
+        for (j = i - 1;j >= lo && data[j] > current;j -= 1) {
+          data[j + 1] = data[j];
         }
+        data[j + 1] = current;
       }
     }
-  }
 }
